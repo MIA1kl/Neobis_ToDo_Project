@@ -8,27 +8,25 @@ Home
     <div class="jumbotron">
         <div class="container">
             <hr class="my-4">
-            <h3>Fill this form to create a new task.</h3>
+            <h3>Fill this form to create a new task</h3>
             <form method="POST" action="/">
                 {% csrf_token %}
                 <div class="form-group">
-                    <label for="title">Enter Title</label>
                     <input type="text" name="title" class="form-control" id="title" placeholder="Enter Title"
                         aria-describedby="emailHelp">
                 </div>
                 <div class="form-group">
-                    <label for="description">Enter description</label>
                     <textarea class="form-control" name="description" id="description" rows="3"
-                        placeholder="Describe your task within 200 characters"></textarea>
+                        placeholder="Enter description"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit!</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
     </div>
 </div>
 
 <div class="container">
-    <h1>List of tasks:-</h1>
+    <h1>List of tasks:</h1>
     <table class="table">
         <thead>
             <tr>

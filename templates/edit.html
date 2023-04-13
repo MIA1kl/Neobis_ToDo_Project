@@ -12,14 +12,12 @@ Edit task
             <form method="POST" action="/edit/{{id}}">
                 {% csrf_token %}
                 <div class="form-group">
-                    <label for="title">Enter Title</label>
                     <input type="text" value="{{title}}" name="title" class="form-control" id="title" placeholder="Enter Title"
                         aria-describedby="emailHelp">
                 </div>
                 <div class="form-group">
-                    <label for="description">Describe your task within 200 characters</label>
                     <textarea class="form-control" name="description" id="description" rows="3"
-                        placeholder="Describe your task within 200 characters">{{description}}</textarea>
+                        placeholder="Enter Description">{{description}}</textarea>
                 </div>
                 <div class="form-group form-check">
                     {% if status == True %}
@@ -29,7 +27,7 @@ Edit task
                     {% endif %}
                     <label class="form-check-label" for="is-complete">Mark as completed</label>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit!</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
     </div>
