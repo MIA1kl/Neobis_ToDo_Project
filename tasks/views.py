@@ -8,7 +8,7 @@ def index(request):
         desc = request.POST.get('description')
         date = request.POST.get('date')
         isComp = request.POST.get('isComplete')
-        if len(t)<1 or len(desc)<1:
+        if len(t)<1 or len(desc)<1 or len(date)<1:
             return redirect('/')
 
         if isComp == 'on':
@@ -30,7 +30,7 @@ def edittask(request, pk):
         newdate = request.POST.get('date')
         newstatus = request.POST.get('isComplete')
         task = Task.objects.get(id=pk)
-        if len(newtitle)<1 or len(newdesc)<1:
+        if len(newtitle)<1 or len(newdesc)<1 or len(newdate)<1:
             return redirect('/')
 
         if newstatus == 'on':
