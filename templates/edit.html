@@ -19,6 +19,10 @@ Edit task
                     <textarea class="form-control" name="description" id="description" rows="3"
                         placeholder="Enter Description">{{description}}</textarea>
                 </div>
+                <div class = "due-Date">
+                    <input type="date" id="date" class="taskDate" name="date">
+                        <label for="dueDate">Due Date</label>
+                </div>
                 <div class="form-group form-check">
                     {% if status == True %}
                     <input type="checkbox" class="form-check-input" name="isComplete" id="is-complete" checked>

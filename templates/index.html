@@ -19,6 +19,10 @@ Home
                     <textarea class="form-control" name="description" id="description" rows="3"
                         placeholder="Enter description"></textarea>
                 </div>
+                <div class = "due-Date">
+                    <input type="date" id="date" class="taskDate" name="date">
+                        <label for="dueDate">Due Date</label>
+                </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
@@ -32,6 +36,7 @@ Home
             <tr>
                 <th scope="col">Title</th>
                 <th scope="col">Description</th>
+                <th scope="col">Due Date</th>
                 <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
             </tr>
@@ -42,9 +47,12 @@ Home
                 {% if i.is_done %}
                 <td><strike>{{ i.title }}</strike></td>
                 <td><strike>{{ i.description }}</strike></td>
+                <td><strike>{{ i.date }}</strike></td>
+                
                 {% else %}
                 <td>{{ i.title }}</td>
                 <td>{{ i.description }}</td>
+                <td>{{ i.date }}</td>
                 {% endif %}
                 
                 <td><a href="{% url 'edit' i.id %}" type="button" class="btn btn-sm btn-primary">Edit</a></td>

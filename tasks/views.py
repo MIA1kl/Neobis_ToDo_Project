@@ -6,6 +6,7 @@ def index(request):
     if request.method == "POST":
         t = request.POST.get('title')
         desc = request.POST.get('description')
+        date = request.POST.get('date')
         isComp = request.POST.get('isComplete')
         if len(t)<1 or len(desc)<1:
             return redirect('/')
@@ -15,7 +16,7 @@ def index(request):
         else:
             isComp = False
 
-        task = Task(title=t, description=desc, is_done=isComp)
+        task = Task(title=t, description=desc,date=date, is_done=isComp)
         task.save()
 
     tasks = Task.objects.all()
@@ -26,6 +27,7 @@ def edittask(request, pk):
     if request.method == "POST":
         newtitle = request.POST.get('title')
         newdesc = request.POST.get('description')
+        newdate = request.POST.get('date')
         newstatus = request.POST.get('isComplete')
         task = Task.objects.get(id=pk)
         if len(newtitle)<1 or len(newdesc)<1:
@@ -37,12 +39,13 @@ def edittask(request, pk):
             newstatus = False
         task.title = newtitle
         task.description = newdesc
+        task.date = newdate
         task.is_done = newstatus
         task.save()
         return redirect('/')
 
     task = Task.objects.get(id=pk)
-    context = {'title': task.title, 'description': task.description, 'status': task.is_done, "id": task.id}
+    context = {'title': task.title, 'description': task.description,'date': task.date, 'status': task.is_done, "id": task.id}
     return render(request, 'edit.html', context)
 
 def delete(request, pk):
